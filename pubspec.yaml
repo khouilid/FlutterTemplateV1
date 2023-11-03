@@ -80,10 +80,8 @@ flutter:
     - assets/icons/languages/
 
 
-
-
 scripts:
-  init : flutter clean; flutter pub get; flutter gen-l10n; flutter pub run build_runner build --delete-conflicting-outputs
+  init : flutter clean; flutter pub get; flutter gen-l10n; flutter pub run build_runner build -d
   build: flutter pub run build_runner build -d
   watch: flutter pub run build_runner watch
   format: flutter format lib

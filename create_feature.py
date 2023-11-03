@@ -68,23 +68,6 @@ const factory '''f'{file_name_prefix.capitalize().replace("_","")}''''State.fail
 
         create_file(dir_path, file_name_prefix, suffix, content)
 
-    # Generate files only in the "application" directory
-    if subdir == "application":
-        suffix = "_notifire.dart"
-        content = ''' 
-
-import 'package:hooks_riverpod/hooks_riverpod.dart';   
-import '../infrastructure/'''f'{file_name_prefix}''''_repository.dart';  
-import "'''f'{file_name_prefix}''''_states.dart";
-
-class '''f'{file_name_prefix.capitalize().replace("_","")}''''StateNotifier extends StateNotifier<'''f'{file_name_prefix.capitalize().replace("_","")}''''State> {
-final '''f'{file_name_prefix.capitalize().replace("_","")}''''Repository  _'''f'{file_name_prefix.replace("_","")}''''Repository;
-
-'''f'{file_name_prefix.capitalize().replace("_","")}''''StateNotifier(this._'''f'{file_name_prefix.replace("_","")}''''Repository) : super(const '''f'{file_name_prefix.capitalize().replace("_","")}''''State.initial());
-
-        }'''
-        
-        create_file(dir_path, file_name_prefix, suffix, content)
 
     # Generate files only in the "application" directory
     if subdir == "application":
@@ -93,8 +76,8 @@ final '''f'{file_name_prefix.capitalize().replace("_","")}''''Repository  _'''f'
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import "'''f'{file_name_prefix}''''_states.dart";
+import '../infrastructure/'''f'{file_name_prefix}''''_repository.dart';
 
-        
 class '''f'{file_name_prefix.capitalize().replace("_","")}''''StateNotifier extends StateNotifier<'''f'{file_name_prefix.capitalize().replace("_","")}''''State> {
 
 final '''f'{file_name_prefix.capitalize().replace("_","")}''''Repository  _'''f'{file_name_prefix.replace("_","")}''''Repository;
@@ -216,6 +199,6 @@ class '''f'{file_name_prefix.capitalize().replace("_","")}''''Page extends State
 
 
 # os.chdir('..')
-os.system("flutter pub run build_runner build --delete-conflicting-outputs")
+os.system("flutter pub run build_runner build -d")
 
 print("Directory structure and files created successfully.")
