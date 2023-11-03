@@ -143,8 +143,6 @@ import '../application/'''f'{file_name_prefix}''''_states.dart';
 import '../infrastructure/'''f'{file_name_prefix}''''_remote_datasource.dart';
 import '../infrastructure/'''f'{file_name_prefix}''''_repository.dart';
 
-
-
 final '''f'{file_name_prefix.replace("_","").lower()}''''RemoteRepositoryProvider =
     Provider<'''f'{file_name_prefix.capitalize().replace("_","")}''''RemoteDataSource>(
   (ref) => '''f'{file_name_prefix.capitalize().replace("_","")}''''RemoteDataSource(ref.watch(dioProvider)),
@@ -164,10 +162,6 @@ final '''f'{file_name_prefix.replace("_","").lower()}''''NotifierProvider =
 );
 '''
         create_file(dir_path, file_name_prefix, suffix, content)
-
-
-
-
 
 
     # Generate files only in the "presentation" directory
