@@ -1,0 +1,10 @@
+{
+  "@@locale": "en",
+  "@@last_modified": "2022-12-19T09:28:10.826",
+  "yes": "Yes",
+  "@yes": {
+    "placeholders": {},
+    "description": "",
+    "type": "text"
+  }
+}
