@@ -3,7 +3,6 @@ import sys
 
 
 
-
 # Check if the parent directory name and file name prefix are provided as command-line arguments
 if len(sys.argv) != 3:
     print("Usage: python create_feature.py <folder> <parent_dir_name>")
@@ -15,7 +14,7 @@ folder = sys.argv[1]
 if folder == "/":
     folder = ""
 
-finalFolder = ''f'./lib/{folder.replace("/","")}''';
+finalFolder = ''f'./lib/{folder}''';
 
 os.chdir(''f'{finalFolder}''')
 
@@ -188,7 +187,6 @@ class '''f'{file_name_prefix.capitalize().replace("_","")}''''Page extends State
 }'''
 
         create_file(dir_path, file_name_prefix, suffix, content)
-
 
 
 
