@@ -19,6 +19,7 @@ void main() async {
   runApp(const ProviderScope(child: AppWidget()));
 }
 
+
 void registerErrorHandlers() {
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.presentError(details);

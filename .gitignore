@@ -32,7 +32,7 @@ migrate_working_dir/
 .pub/
 /build/
 /test/auth/
-
+/new_flutter_app.py
 # Symbolication related
 app.*.symbols
 
