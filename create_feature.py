@@ -60,9 +60,9 @@ part "'''f'{file_name_prefix}''''_states.freezed.dart" ;
 class '''f'{file_name_prefix.capitalize().replace("_","")}''''State with _$'''f'{file_name_prefix.capitalize().replace("_","")}''''State  
 {
 const '''f'{file_name_prefix.capitalize().replace("_","")}''''State._(); 
-const factory '''f'{file_name_prefix.capitalize().replace("_","")}''''State.loading() = Loading;
-const factory '''f'{file_name_prefix.capitalize().replace("_","")}''''State.initial() = Initial;
-const factory '''f'{file_name_prefix.capitalize().replace("_","")}''''State.failure() = Failure;
+const factory '''f'{file_name_prefix.capitalize().replace("_","")}''''State.loading() = _Loading;
+const factory '''f'{file_name_prefix.capitalize().replace("_","")}''''State.initial() = _Initial;
+const factory '''f'{file_name_prefix.capitalize().replace("_","")}''''State.failure() = _Failure;
 }'''
 
         create_file(dir_path, file_name_prefix, suffix, content)
@@ -148,7 +148,7 @@ final '''f'{file_name_prefix.replace("_","").lower()}''''RemoteRepositoryProvide
 );
 
 
-final '''f'{file_name_prefix.replace("_","").lower()}''''Repository = Provider<'''f'{file_name_prefix.capitalize().replace("_","")}''''Repository>(
+final '''f'{file_name_prefix.replace("_","").lower()}''''RepositoryProvider = Provider<'''f'{file_name_prefix.capitalize().replace("_","")}''''Repository>(
   (ref) => '''f'{file_name_prefix.capitalize().replace("_","")}''''Repository(
     ref.watch('''f'{file_name_prefix.replace("_","").lower()}''''RemoteRepositoryProvider),
   ),
@@ -157,7 +157,7 @@ final '''f'{file_name_prefix.replace("_","").lower()}''''Repository = Provider<'
 
 final '''f'{file_name_prefix.replace("_","").lower()}''''NotifierProvider =
     StateNotifierProvider<'''f'{file_name_prefix.replace("_","").capitalize()}''''StateNotifier, '''f'{file_name_prefix.capitalize().replace("_","")}''''State>(
-  (ref) => '''f'{file_name_prefix.replace("_","").capitalize()}''''StateNotifier(ref.watch('''f'{file_name_prefix.replace("_","").lower()}''''Repository)),
+  (ref) => '''f'{file_name_prefix.replace("_","").capitalize()}''''StateNotifier(ref.watch('''f'{file_name_prefix.replace("_","").lower()}''''RepositoryProvider)),
 );
 '''
         create_file(dir_path, file_name_prefix, suffix, content)

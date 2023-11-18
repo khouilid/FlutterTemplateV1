@@ -1,9 +1,9 @@
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../../../postes/infrastructure/isar/post_isar.dart';
 
-
-const _isarSchemas = <CollectionSchema<Object>>[];
+const _isarSchemas = <CollectionSchema<Object>>[PostIsarSchema];
 
 class IsarDatabase {
   late Isar _isar;
