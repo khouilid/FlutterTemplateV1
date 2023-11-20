@@ -1,10 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
 
+
+/// Returns the screen width
 double getDimension(double dimension, double limit) {
   if (dimension > limit) {
     return limit;
@@ -12,6 +10,8 @@ double getDimension(double dimension, double limit) {
   return dimension;
 }
 
+
+/// Checks if the device is a desktop
 bool get isDesktop {
   if (kIsWeb) return false;
   return [
@@ -21,6 +21,7 @@ bool get isDesktop {
   ].contains(defaultTargetPlatform);
 }
 
+/// Checks if the device is a windows desktop
 bool get isWindows {
   if (kIsWeb) return false;
   return [
@@ -28,6 +29,8 @@ bool get isWindows {
   ].contains(defaultTargetPlatform);
 }
 
+
+/// Checks if the device is a MacOs
 bool get isMacOs {
   if (kIsWeb) return false;
   return [
@@ -35,6 +38,8 @@ bool get isMacOs {
   ].contains(defaultTargetPlatform);
 }
 
+
+/// Checks if the device is a Android
 bool get isAndroid {
   if (kIsWeb) return false;
   return [
@@ -42,6 +47,8 @@ bool get isAndroid {
   ].contains(defaultTargetPlatform);
 }
 
+
+/// Checks if the device is a iOS
 bool get isiOS {
   if (kIsWeb) return false;
   return [
@@ -49,6 +56,8 @@ bool get isiOS {
   ].contains(defaultTargetPlatform);
 }
 
+
+/// Password validation
 bool isPasswordValid(String input) {
   return RegExp(
     r'^(?=.*?[A-z])(?=.*?[0-9]).{8,}$',
@@ -56,6 +65,7 @@ bool isPasswordValid(String input) {
 }
 
 
+/// hide keyboard
 void hideKeyBoard() {
   WidgetsBinding.instance.focusManager.primaryFocus?.unfocus();
 }

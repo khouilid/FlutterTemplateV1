@@ -18,12 +18,9 @@ class InternetConnectionService {
       try {
         return await onData();
       } catch (e) {
-        print(e);
         return onError();
       }
     } else {
-      print('No Internet Connection');
-
       return onError();
     }
   }

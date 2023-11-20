@@ -37,6 +37,7 @@ subdirs = ["application", "infrastructure", "presentation", "shared", "domain"]
 
 
 def create_file(directory, prefix, suffix, content):
+    
     file_name = f"{prefix.lower()}{suffix}"
     file_path = os.path.join(directory, file_name)
     with open(file_path, "w") as file:
@@ -47,6 +48,7 @@ def create_file(directory, prefix, suffix, content):
 for subdir in subdirs:
     dir_path = os.path.join(parent_dir, subdir)
     os.mkdir(dir_path)
+  
 
     # Generate files only in the "application" directory
     if subdir == "application":
@@ -75,7 +77,7 @@ const factory '''f'{file_name_prefix.capitalize().replace("_","")}''''State.fail
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import "'''f'{file_name_prefix}''''_states.dart";
-import '../infrastructure/'''f'{file_name_prefix}''''_repository.dart';
+import '../infrastructure/repository/'''f'{file_name_prefix}''''_repository.dart';
 
 class '''f'{file_name_prefix.capitalize().replace("_","")}''''StateNotifier extends StateNotifier<'''f'{file_name_prefix.capitalize().replace("_","")}''''State> {
 
@@ -90,34 +92,13 @@ final '''f'{file_name_prefix.capitalize().replace("_","")}''''Repository  _'''f'
 
     # Generate files only in the "infrastructure" directory
     if subdir == "infrastructure":
-        suffix = "_remote_datasource.dart"
-        content = ''' 
-
-import '../../core/infrastructure/helpers/remote_service_helper.dart';
-import 'package:dio/dio.dart';
-class  '''f'{file_name_prefix.capitalize().replace("_","")}''''RemoteDataSource extends RemoteServiceHelper {
-        
-final Dio _dio;
-
-'''f'{file_name_prefix.capitalize().replace("_","")}''''RemoteDataSource(this._dio);
-
-//   Future<Foo> makeFoo() 
-//     return withoutRemoteResponse(_dio.post("/"), (_) =>   Foo );
-//  }
-
-        
-}'''
-
-        create_file(dir_path, file_name_prefix, suffix, content)
-
-
-    # Generate files only in the "infrastructure" directory
-    if subdir == "infrastructure":
+        os.mkdir(dir_path + "/repository")
+        os.mkdir(dir_path + "/remote")
         suffix = "_repository.dart"
         content = ''' 
 
-import "../../core/infrastructure/helpers/repository_helper.dart";
-import "'''f'{file_name_prefix}''''_remote_datasource.dart";
+import "../../../core/infrastructure/helpers/repository_helper.dart";
+import "../remote/'''f'{file_name_prefix}''''_remote_datasource.dart";
 
 class '''f'{file_name_prefix.capitalize().replace("_","")}''''Repository with RepositoryHelper {
 
@@ -127,8 +108,54 @@ final '''f'{file_name_prefix.capitalize().replace("_","")}''''RemoteDataSource _
   
          
 }'''
+       
+        create_file( dir_path + "/repository" , file_name_prefix, suffix, content)
 
-        create_file(dir_path, file_name_prefix, suffix, content)
+
+        
+ # Generate files only in the "infrastructure" directory
+    if subdir == "infrastructure":
+        
+
+        
+        suffix = "_remote_datasource.dart"
+        content = ''' 
+
+
+import "'''f'{file_name_prefix}''''_services.dart";
+
+class  '''f'{file_name_prefix.capitalize().replace("_","")}''''RemoteDataSource  {
+final '''f'{file_name_prefix.capitalize().replace("_","")}''''Service _'''f'{file_name_prefix.replace("_","")}''''Service;
+
+'''f'{file_name_prefix.capitalize().replace("_","")}''''RemoteDataSource(this._'''f'{file_name_prefix.replace("_","")}''''Service);
+
+        
+}'''
+
+
+        create_file(dir_path + "/remote", file_name_prefix, suffix, content)
+
+    if subdir == "infrastructure":
+        
+        suffix = "_services.dart"
+        content = ''' 
+
+
+import 'package:dio/dio.dart';
+import 'package:retrofit/retrofit.dart';
+
+part "'''f'{file_name_prefix}''''_services.g.dart" ;
+
+@RestApi()
+abstract class '''f'{file_name_prefix.capitalize().replace("_","")}''''Service {
+  factory '''f'{file_name_prefix.capitalize().replace("_","")}''''Service(Dio dio) = _'''f'{file_name_prefix.capitalize().replace("_","")}''''Service;
+
+        
+}'''
+
+           
+        create_file(dir_path + "/remote", file_name_prefix, suffix, content)
+
 
     # Generate files only in the "shared" directory
     if subdir == "shared":
@@ -139,12 +166,25 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../core/shared/providers.dart';
 import "../application/'''f'{file_name_prefix}''''_notifire.dart";  
 import '../application/'''f'{file_name_prefix}''''_states.dart';
-import '../infrastructure/'''f'{file_name_prefix}''''_remote_datasource.dart';
-import '../infrastructure/'''f'{file_name_prefix}''''_repository.dart';
+import '../infrastructure/remote/'''f'{file_name_prefix}''''_remote_datasource.dart';
+import '../infrastructure/remote/'''f'{file_name_prefix}''''_services.dart';
+
+import '../infrastructure/repository/'''f'{file_name_prefix}''''_repository.dart';
+
+
+
+
+
+
+final '''f'{file_name_prefix.replace("_","").lower()}''''Service = Provider<'''f'{file_name_prefix.capitalize().replace("_","")}''''Service>((ref) => '''f'{file_name_prefix.capitalize().replace("_","")}''''Service(ref.watch(dioProvider)));
+
+
+
+
 
 final '''f'{file_name_prefix.replace("_","").lower()}''''RemoteRepositoryProvider =
     Provider<'''f'{file_name_prefix.capitalize().replace("_","")}''''RemoteDataSource>(
-  (ref) => '''f'{file_name_prefix.capitalize().replace("_","")}''''RemoteDataSource(ref.watch(dioProvider)),
+  (ref) => '''f'{file_name_prefix.capitalize().replace("_","")}''''RemoteDataSource(ref.watch('''f'{file_name_prefix.replace("_","").lower()}''''Service)),
 );
 
 

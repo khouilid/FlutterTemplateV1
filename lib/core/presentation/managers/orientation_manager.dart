@@ -1,9 +1,11 @@
 import 'package:flutter/services.dart';
 
+/// this class help to manage the orientation of the app
+/// if you want to set the app to be in landscape mode
+/// call the [setLandscape] function
+/// if you want to set the app to be in portrait mode
+/// call the [setPortrait] function
 class OrientationManager {
-  // Singleton
-
-  static final OrientationManager _instance = OrientationManager._internal();
   OrientationManager._internal();
 
   static void setLandscape() {

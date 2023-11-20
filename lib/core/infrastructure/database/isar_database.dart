@@ -3,6 +3,9 @@ import 'package:path_provider/path_provider.dart';
 
 import '../../../postes/infrastructure/isar/post_isar.dart';
 
+
+/// in this collection schema we are going to add all the collections that we have in our database.
+/// we are going to add the [PostIsarSchema] that we created in the [post_isar.dart] file.
 const _isarSchemas = <CollectionSchema<Object>>[PostIsarSchema];
 
 class IsarDatabase {

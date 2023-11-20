@@ -1,19 +1,11 @@
-import 'package:dio/dio.dart';
-import '../../../../core/infrastructure/helpers/remote_service_helper.dart';
 import '../../dtos/posts_dto.dart';
+import '../../dtos/response_create_post_dto.dart';
+import 'posts_remote.dart';
 
-class PostsRemoteDataSource extends RemoteServiceHelper {
-  final Dio _dio;
+class PostsRemoteDataSource {
+  final PostsService _postsService;
+  PostsRemoteDataSource(this._postsService);
 
-  PostsRemoteDataSource(this._dio);
-
-  Future<List<PostsDto>> getPostsDto() async =>
-      withoutRemoteResponse(_dio.get("/posts"), (_) {
-        return (_ as List).map((e) => PostsDto.fromJson(e)).toList();
-      });
-
-  Future<int> createPosts(PostsDto postsDto) async =>
-      withoutRemoteResponse(_dio.post("/posts"), (_) {
-        return  _["id"] as int;
-      });
+  Future<List<PostsDto>> getPostsDto() => _postsService.getPosts();
+  Future<ResponseCreatePostDto> createPosts(PostsDto post) => _postsService.createPost(post.toJson());
 }

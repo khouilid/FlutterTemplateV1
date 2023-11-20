@@ -1,6 +1,10 @@
 
 import 'package:dio/dio.dart';
 
+
+
+/// A class that logs Dio HTTP request and response data.
+/// to can track the request and response data.
 class LoggingInterceptor extends InterceptorsWrapper {
   int maxCharactersPerLine = 200;
   String baseUrl;

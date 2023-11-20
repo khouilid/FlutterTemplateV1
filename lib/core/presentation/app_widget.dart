@@ -23,6 +23,7 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
 
   final initializationProvider = FutureProvider<Unit>(
     (ref) async {
+      
       /// Initialize the Theme when the app starts. We do this here to
       await ref.read(themeNotifierProvider.notifier).getThemeMode();
 
@@ -38,17 +39,27 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
 
   @override
   Widget build(BuildContext context) {
+
+   
+    /// this is the localization provider that we created in the [language_change_provider.dart] file.
     final localizationProvider = ref.watch(localizationNotifierProvider);
+
+    /// this is the theme provider that we created in the [theme_provider.dart] file.
     final themeProvider = ref.watch(themeNotifierProvider);
 
+
+    /// this is the app router that we created in the [app_router.dart] file.
     final appRouter = ref.watch(appRouterProvider);
+
+
+    /// We use the [ref.listen] method to listen to the changes in the [initializationProvider] provider.
     ref.listen(
       initializationProvider,
       (_, __) {},
     );
 
     return MaterialApp.router(
-      title: StringsManager.appName,
+      title: StringsManager.appName, // This is the app name that we created in the [strings_manager.dart] file.
       theme: themeProvider == ThemeMode.system ? lightTheme : darkTheme,
       builder: (context, child) {
         return ResponsiveBreakpoints.builder(
@@ -66,7 +77,7 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
       routerDelegate: appRouter.delegate(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: localizationProvider,
+      locale: localizationProvider, // This is the localization provider that we created in the [language_change_provider.dart] file.
     );
   }
 }

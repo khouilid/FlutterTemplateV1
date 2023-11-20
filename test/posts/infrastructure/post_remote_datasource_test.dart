@@ -8,6 +8,8 @@ import 'package:template/core/config/environment.dart';
 import 'package:template/core/infrastructure/helpers/logger_interceptor.dart';
 import 'package:template/core/shared/providers.dart';
 import 'package:template/postes/infrastructure/dtos/posts_dto.dart';
+import 'package:template/postes/infrastructure/dtos/response_create_post_dto.dart';
+import 'package:template/postes/infrastructure/repository/remote/posts_remote.dart';
 import 'package:template/postes/infrastructure/repository/remote/remote_repository.dart';
 
 import '../../core/infrastrcture/test_helper.dart';
@@ -22,11 +24,14 @@ void main() async {
     late PostsRemoteDataSource postsRemoteDataSource;
     late ProviderContainer container;
     late Dio dio;
+    late PostsService postsService;
     late DioAdapter dioAdapter;
 
     setUp(() async {
       container = ProviderContainer();
       dio = container.read(dioProvider);
+      postsService = PostsService(dio);
+
 
       dio.options.baseUrl = baseUrl;
       dio.interceptors.add(
@@ -36,7 +41,7 @@ void main() async {
       );
 
       dioAdapter = MockDioAdapter();
-      postsRemoteDataSource = PostsRemoteDataSource(dio);
+      postsRemoteDataSource = PostsRemoteDataSource(postsService);
     });
 
     test('🧪 get post', () async {
@@ -79,8 +84,8 @@ void main() async {
         "/posts",
       );
 
-      verifyResultType<int>(result);
-      _verifyResponseValuesCreate<int>(result);
+      verifyResultType<ResponseCreatePostDto>(result);
+      _verifyResponseValuesCreate<ResponseCreatePostDto>(result);
     });
   });
 }
@@ -91,8 +96,8 @@ void _verifyResponseValues<T>(List<PostsDto> result) {
   print('✅ Response values verified successfully. \n');
 }
 
-void _verifyResponseValuesCreate<T>(int result) {
+void _verifyResponseValuesCreate<T>(ResponseCreatePostDto result) {
   print('✅ Verifying response values... \n');
-  expect(result, isA<int>());
+  expect(result.id, isA<int>());
   print('✅ Response values verified successfully. \n');
 }

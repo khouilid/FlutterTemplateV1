@@ -12,9 +12,7 @@ class _PostsService implements PostsService {
   _PostsService(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://jsonplaceholder.typicode.com';
-  }
+  });
 
   final Dio _dio;
 
@@ -50,13 +48,14 @@ class _PostsService implements PostsService {
   }
 
   @override
-  Future<PostsDto> createPost(PostsDto example) async {
+  Future<ResponseCreatePostDto> createPost(Map<String, dynamic> example) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = example;
-    final _result =
-        await _dio.fetch<Map<String, dynamic>>(_setStreamType<PostsDto>(Options(
+    final _data = <String, dynamic>{};
+    _data.addAll(example);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ResponseCreatePostDto>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -72,7 +71,7 @@ class _PostsService implements PostsService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = PostsDto.fromJson(_result.data!);
+    final value = ResponseCreatePostDto.fromJson(_result.data!);
     return value;
   }
 

@@ -13,7 +13,13 @@ class PostsDto with _$PostsDto {
     required String body,
   }) = _PostsDto;
 
+
+
   factory PostsDto.fromJson(Map<String, dynamic> json) => _$PostsDtoFromJson(json);
+
+
+
+
 
   factory PostsDto.fromDomain(Posts posts) {
     return PostsDto(

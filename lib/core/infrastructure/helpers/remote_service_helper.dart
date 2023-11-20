@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
+import '../../presentation/managers/strings_manager.dart';
 import '../exceptions/dio_exception.dart' as exp;
 import '../extensions/dio_extensions.dart';
 import '../remote_response.dart';
@@ -29,6 +30,7 @@ class RemoteServiceHelper {
         );
       }
     } on DioException catch (e, s) {
+
       Logger().d(s);
 
       if (e.isNoConnectionError) {
@@ -67,7 +69,6 @@ class RemoteServiceHelper {
           }
         }
       } else {
-        print("eeeeeeeeeee");
 
         // Check for server error 500
         if (response.statusCode == 500) {
@@ -75,7 +76,6 @@ class RemoteServiceHelper {
           throw exp.DioException(
             code: response.statusCode,
             message: response.data.toString(),
-            //error: response.data, // Include response data in the error
           );
         } else {
           throw exp.DioException(
@@ -86,16 +86,14 @@ class RemoteServiceHelper {
       }
     } catch (e, s) {
       Logger().i(e);
-      print(e);
       Logger().d(s);
-
       if (e is DioError) {
         print(e.response?.data);
         if (e.isNoConnectionError) {
           if (throwError) {
             throw exp.DioException(
               code: 4000,
-              message: 'No Internet Connection',
+              message:  StringsManager.noInternetConnection,
             );
           } else {
             return const RemoteResponse.noConnection();

@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:template/postes/infrastructure/dtos/response_create_post_dto.dart';
 import '../../dtos/posts_dto.dart';
 part 'posts_remote.g.dart';
 
-@RestApi(baseUrl: "https://jsonplaceholder.typicode.com")
+@RestApi()
 abstract class PostsService {
   factory PostsService(Dio dio) = _PostsService;
 
@@ -11,7 +12,7 @@ abstract class PostsService {
   Future<List<PostsDto>> getPosts();
 
   @POST('/posts')
-  Future<PostsDto> createPost(@Body() PostsDto example);
+  Future<ResponseCreatePostDto> createPost(@Body() Map<String,dynamic> example);
 
   @PUT('/posts/{id}')
   Future<PostsDto> updatePost(@Path() int id, @Body() PostsDto example);

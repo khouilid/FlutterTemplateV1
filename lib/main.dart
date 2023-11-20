@@ -8,18 +8,23 @@ import 'core/presentation/app_widget.dart';
 import 'core/presentation/managers/orientation_manager.dart';
 
 void main() async {
+  /// This function is used to ensure that the app is initialized before it is run.
   WidgetsFlutterBinding.ensureInitialized();
 
+  /// This function is used to load the .env file before the app is run.
   await dotenv.load(fileName: fileName());
 
   registerErrorHandlers();
 
+  /// This function is used to set the app orientation to portrait mode only.
   OrientationManager.setPortrait();
 
+  /// This function is used to run the app.
   runApp(const ProviderScope(child: AppWidget()));
 }
 
-
+/// This function is used to register error handlers for the app to handle errors and exceptions in a better way.
+/// It is called in the main function before the app is run.
 void registerErrorHandlers() {
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.presentError(details);
