@@ -8,17 +8,16 @@ part 'response_create_post_dto.g.dart';
 @freezed
 class ResponseCreatePostDto with _$ResponseCreatePostDto {
   const ResponseCreatePostDto._();
-  const factory ResponseCreatePostDto(
-    {@JsonKey(name: 'id') int? id}
-  ) = _ResponseCreatePostDto;
+  const factory ResponseCreatePostDto({@JsonKey(name: 'id') int? id}) =
+      _ResponseCreatePostDto;
 
   factory ResponseCreatePostDto.fromJson(Map<String, dynamic> json) =>
       _$ResponseCreatePostDtoFromJson(json);
 
-  factory ResponseCreatePostDto.fromDomain(ResponseCreatePostModel responseCreatePostModel) {
+  factory ResponseCreatePostDto.fromDomain(
+      ResponseCreatePostModel responseCreatePostModel) {
     return ResponseCreatePostDto(
       id: responseCreatePostModel.id,
- 
     );
   }
 

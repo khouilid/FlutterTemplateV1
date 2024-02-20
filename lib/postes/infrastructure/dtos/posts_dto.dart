@@ -18,9 +18,6 @@ class PostsDto with _$PostsDto {
   factory PostsDto.fromJson(Map<String, dynamic> json) => _$PostsDtoFromJson(json);
 
 
-
-
-
   factory PostsDto.fromDomain(Posts posts) {
     return PostsDto(
       id: posts.id,

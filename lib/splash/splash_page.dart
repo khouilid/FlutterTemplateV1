@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:template/core/presentation/routes/app_router.gr.dart';
+import '/core/presentation/routes/app_router.gr.dart';
 
 @RoutePage()
 class SplashPage extends StatelessWidget {

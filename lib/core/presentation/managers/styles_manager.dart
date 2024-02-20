@@ -7,10 +7,8 @@ TextStyle getRobotoRegularTheme({
   Color? colorTheme,
 }) {
   final color = setColor(getColor, context);
-  final robotoBold = Theme.of(context)
-      .textTheme
-      .displayMedium!
-      .copyWith(fontSize: size, fontWeight: FontWeight.w400, color: colorTheme ?? color);
+  final robotoBold = Theme.of(context).textTheme.displayMedium!.copyWith(
+      fontSize: size, fontWeight: FontWeight.w400, color: colorTheme ?? color);
   return robotoBold;
 }
 
@@ -21,8 +19,8 @@ TextStyle getRobotoMediumTheme({
   Color? colorTheme,
 }) {
   final color = setColor(getColor, context);
-  final robotoBold =
-      Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: size, fontWeight: FontWeight.w500, color: colorTheme ?? color);
+  final robotoBold = Theme.of(context).textTheme.bodyMedium!.copyWith(
+      fontSize: size, fontWeight: FontWeight.w500, color: colorTheme ?? color);
   return robotoBold;
 }
 
@@ -33,8 +31,8 @@ TextStyle getNunitoMediumTheme({
   Color? colorTheme,
 }) {
   final color = setColor(getColor, context);
-  final robotoBold =
-      Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: size, fontWeight: FontWeight.w500, color: colorTheme ?? color);
+  final robotoBold = Theme.of(context).textTheme.displaySmall!.copyWith(
+      fontSize: size, fontWeight: FontWeight.w500, color: colorTheme ?? color);
   return robotoBold;
 }
 
@@ -45,8 +43,8 @@ TextStyle getRobotoBoldTheme({
   Color? colorTheme,
 }) {
   final color = setColor(getColor, context);
-  final robotoBold =
-      Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: size, fontWeight: FontWeight.bold, color: colorTheme ?? color);
+  final robotoBold = Theme.of(context).textTheme.bodyMedium!.copyWith(
+      fontSize: size, fontWeight: FontWeight.bold, color: colorTheme ?? color);
 
   return robotoBold;
 }
@@ -56,7 +54,6 @@ TextStyle getRobotoAppBarTextTheme({
   double size = 0,
 }) {
   final robotoBold = Theme.of(context).textTheme.displayLarge!.copyWith(
-        // fontSize: size == 0 ? 18 : size,
         fontWeight: FontWeight.w600,
       );
   return robotoBold;
