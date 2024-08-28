@@ -1,11 +1,16 @@
 import 'package:dartz/dartz.dart';
+import 'package:flash/flash.dart';
+import 'package:flash/flash_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:responsive_framework/responsive_framework.dart';
-
+import 'package:template/app_update/presentation/widget/app_update_dialog.dart';
+import 'package:template/app_update/shared/providers.dart';
+import 'package:template/auth/application/auth_notifier.dart';
+import 'package:template/auth/shared/providers.dart';
+import 'package:template/user/shared/user_providers.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../language_change/shared/providers.dart';
-import '../../theme/shared/dark_theme.dart';
 import '../../theme/shared/light_theme.dart';
 import '../../theme/shared/providers.dart';
 import '../shared/providers.dart';
@@ -23,7 +28,6 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
 
   final initializationProvider = FutureProvider<Unit>(
     (ref) async {
-      
       /// Initialize the Theme when the app starts. We do this here to
       await ref.read(themeNotifierProvider.notifier).getThemeMode();
 
@@ -39,18 +43,14 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
 
   @override
   Widget build(BuildContext context) {
-
-   
     /// this is the localization provider that we created in the [language_change_provider.dart] file.
     final localizationProvider = ref.watch(localizationNotifierProvider);
 
     /// this is the theme provider that we created in the [theme_provider.dart] file.
     final themeProvider = ref.watch(themeNotifierProvider);
 
-
     /// this is the app router that we created in the [app_router.dart] file.
     final appRouter = ref.watch(appRouterProvider);
-
 
     /// We use the [ref.listen] method to listen to the changes in the [initializationProvider] provider.
     ref.listen(
@@ -58,26 +58,59 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
       (_, __) {},
     );
 
-    return MaterialApp.router(
-      title: StringsManager.appName, // This is the app name that we created in the [strings_manager.dart] file.
-      theme: themeProvider == ThemeMode.system ? lightTheme : darkTheme,
-      builder: (context, child) {
-        return ResponsiveBreakpoints.builder(
-          breakpoints: const [
-            Breakpoint(start: 0, end: 480, name: MOBILE),
-            Breakpoint(start: 481, end: 1200, name: TABLET),
-            Breakpoint(start: 1201, end: 1920, name: DESKTOP),
-            Breakpoint(start: 1921, end: double.infinity, name: '4K'),
-          ],
-          child: child!,
+    ref.listen<AuthState>(
+      authNotifierProvider,
+      (AuthState? previous, AuthState next) {
+        next.maybeMap(
+          orElse: () {},
+          authenticated: (_) {
+            ref.read(userProvider.notifier).state = _.user;
+          },
+          unauthenticated: (_) {},
         );
       },
-      debugShowCheckedModeBanner: false,
-      routeInformationParser: appRouter.defaultRouteParser(),
-      routerDelegate: appRouter.delegate(),
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      locale: localizationProvider, // This is the localization provider that we created in the [language_change_provider.dart] file.
     );
+
+    ref.listen(appUpdateNotifierProvider, (previous, next) {
+      next.maybeMap(
+          orElse: () {},
+          hasAnUpdate: (_) {
+            if (_.appUpdateStatusModel.updateAvailable &&
+                _.appUpdateStatusModel.optional) {
+              updateDialog(context, _.appUpdateStatusModel);
+            }
+            if (_.appUpdateStatusModel.updateAvailable &&
+                !_.appUpdateStatusModel.optional) {}
+          });
+    });
+
+    return ScreenUtilInit(
+        minTextAdapt: true,
+        child: MaterialApp.router(
+          title: StringsManager.appName,
+          builder: (context, child) {
+            return Toast(navigatorKey: appRouter.navigatorKey, child: child!);
+          },
+          theme: lightTheme.copyWith(
+            extensions: [
+              FlashToastTheme(
+                backgroundColor: Colors.black87,
+                textStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                alignment: AlignmentDirectional.bottomCenter,
+              ),
+            ],
+          ),
+          debugShowCheckedModeBanner: false,
+          routeInformationParser: appRouter.defaultRouteParser(),
+          routerDelegate: appRouter.delegate(),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          locale: localizationProvider,
+        ));
   }
 }

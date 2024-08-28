@@ -23,16 +23,20 @@ void main() async {
   runApp(const ProviderScope(child: AppWidget()));
 }
 
+
+
+
 /// This function is used to register error handlers for the app to handle errors and exceptions in a better way.
 /// It is called in the main function before the app is run.
 void registerErrorHandlers() {
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.presentError(details);
-    Logger().log(Level.debug, details.toString());
+    Logger().log(Level.warning,
+        "FlutterErrorDetails (RegisterErrorHandlers) |\n${details}");
   };
   PlatformDispatcher.instance.onError = (Object error, StackTrace stack) {
-    debugPrint(error.toString());
-    Logger().log(Level.debug, error);
+    Logger().log(Level.error, "Main (RegisterErrorHandlers) |\n${stack}");
+
     return true;
   };
   ErrorWidget.builder = (FlutterErrorDetails details) {

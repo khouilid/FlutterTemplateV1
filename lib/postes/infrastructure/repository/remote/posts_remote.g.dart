@@ -20,10 +20,10 @@ class _PostsService implements PostsService {
 
   @override
   Future<List<PostsDto>> getPosts() async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result =
         await _dio.fetch<List<dynamic>>(_setStreamType<List<PostsDto>>(Options(
       method: 'GET',
@@ -49,7 +49,7 @@ class _PostsService implements PostsService {
 
   @override
   Future<ResponseCreatePostDto> createPost(Map<String, dynamic> example) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
@@ -80,7 +80,7 @@ class _PostsService implements PostsService {
     int id,
     PostsDto example,
   ) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = example;
@@ -107,10 +107,10 @@ class _PostsService implements PostsService {
 
   @override
   Future<void> deletePost(int id) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'DELETE',
       headers: _headers,

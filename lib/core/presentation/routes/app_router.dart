@@ -11,5 +11,6 @@ class AppRouter extends $AppRouter {
   final List<AutoRoute> routes = [
     AdaptiveRoute(page: SplashRoute.page, initial: true, path: "/spalsh"),
     AdaptiveRoute(page: PostsListScreen.page, path: "/list-post"),
+    AdaptiveRoute(page: SignInRoute.page, path: "/sign-in"),
   ];
 }

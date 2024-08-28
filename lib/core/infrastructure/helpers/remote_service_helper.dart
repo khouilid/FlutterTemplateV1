@@ -30,7 +30,6 @@ class RemoteServiceHelper {
         );
       }
     } on DioException catch (e, s) {
-
       Logger().d(s);
 
       if (e.isNoConnectionError) {
@@ -69,7 +68,6 @@ class RemoteServiceHelper {
           }
         }
       } else {
-
         // Check for server error 500
         if (response.statusCode == 500) {
           print(response.data);
@@ -93,7 +91,7 @@ class RemoteServiceHelper {
           if (throwError) {
             throw exp.DioException(
               code: 4000,
-              message:  StringsManager.noInternetConnection,
+              message: StringsManager.noInternetConnection,
             );
           } else {
             return const RemoteResponse.noConnection();

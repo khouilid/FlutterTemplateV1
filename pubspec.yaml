@@ -1,18 +1,16 @@
 name: template
 description: Template App .
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
-
+  sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-
 
   flex_color_scheme: ^7.3.1
   encrypt: ^5.0.3
@@ -34,13 +32,14 @@ dependencies:
   flutter_svg: ^2.0.9
   retrofit: ^4.1.0
   logger: ^2.0.2+1
-  
+
   flutter_localizations:
     sdk: flutter
-
-
-
-
+  flash: ^3.1.1
+  package_info_plus: ^8.0.2
+  url_launcher: ^6.3.0
+  flutter_animate: ^4.5.0
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   auto_route_generator: ^7.3.2
@@ -58,12 +57,9 @@ dev_dependencies:
   mockito: ^5.4.4
   http_mock_adapter: ^0.6.1
 
-
-
-
 flutter_gen:
-  output: lib/gen/ 
-  line_length: 80 
+  output: lib/gen/
+  line_length: 80
   assets:
     enabled: true
   fonts:
@@ -72,11 +68,10 @@ flutter_gen:
     flutter_svg: true
     lottie: true
 
-
 flutter:
   uses-material-design: true
   generate: true
-  
+
   assets:
     - .env.dev
     - .env.prod
@@ -85,12 +80,10 @@ flutter:
     - assets/jsons/
     - assets/fonts/
 
-
 scripts:
-  init : flutter clean; flutter pub get; flutter gen-l10n; flutter pub run build_runner build -d
+  init: flutter clean; flutter pub get; flutter gen-l10n; flutter pub run build_runner build -d
   build: flutter pub run build_runner build -d
   watch: flutter pub run build_runner watch
   format: flutter format lib
   android: flutter build apk --release
   get: flutter pub get
-  

@@ -5,7 +5,7 @@ This script automates the creation of a basic directory structure and files for 
 
 ## Usage
 
-python create_feature.py <dirctory_name> <feature_name>
+python main.py  <feature_name>
 
 - <dirctory_name>: The name of the feature folder.
 - <feature_name>: The name of the parent directory for the feature.

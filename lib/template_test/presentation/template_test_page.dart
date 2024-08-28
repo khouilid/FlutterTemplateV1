@@ -1,3 +1,4 @@
+ 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -12,4 +13,5 @@ class TemplatetestPage extends StatelessWidget {
       child: Text("Templatetest Page"),
     ));
   }
+
 }
