@@ -1,15 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'package:template/core/presentation/utils/bottom_sheet_model.dart';
-import 'package:template/gen/assets.gen.dart';
 import 'package:template/user/presentation/widgets/language_bottom_sheet.dart';
 import 'package:template/user/shared/user_providers.dart';
-
-
 
 import 'widgets/logout_bottom_sheet.dart';
 
@@ -106,7 +102,6 @@ class UserPage extends ConsumerWidget {
                                 colorIcon: Color(0xffEB4D3D),
                                 icon: Icon(Icons.settings),
                                 onPressed: () {
-                  
                                   Logger().d("proinfo");
                                 },
                                 title: "Profile Information",
@@ -126,7 +121,6 @@ class UserPage extends ConsumerWidget {
                           padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
-                         
                               ProfileListeTileInfo(
                                 colorIcon: Color(0xff3478F6),
                                 icon: Icon(Icons.settings),
@@ -146,7 +140,6 @@ class UserPage extends ConsumerWidget {
                     SizedBox(
                       height: 10,
                     ),
-                   
                     SizedBox(
                       height: 40,
                     ),
