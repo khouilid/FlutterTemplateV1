@@ -17,7 +17,7 @@ _$UserDtoImpl _$$UserDtoImplFromJson(Map<String, dynamic> json) =>
       email: json['email'] as String? ?? null,
       createdAt: json['createdAt'] as String? ?? null,
       fcmToken: json['fcmToken'] as String? ?? null,
-      age: json['age'] as int? ?? null,
+      age: (json['age'] as num?)?.toInt() ?? null,
       avatar: json['avatar'] as String? ?? null,
       isCompleted: json['isCompleted'] as bool? ?? null,
     );

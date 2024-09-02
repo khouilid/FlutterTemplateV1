@@ -9,7 +9,7 @@ part of 'app_version_dto.dart';
 _$AppVersionDtoImpl _$$AppVersionDtoImplFromJson(Map<String, dynamic> json) =>
     _$AppVersionDtoImpl(
       version: json['version'] as String? ?? null,
-      buildNumber: json['build'] as int? ?? null,
+      buildNumber: (json['build'] as num?)?.toInt() ?? null,
       optional: json['isMandatory'] as bool? ?? null,
       platform: json['platform'] as String? ?? null,
       description: json['releaseNotes'] as String? ?? null,

@@ -20,13 +20,11 @@ final remoteServiceProvider = Provider<AuthRemoteService>(
 
 final authenticatorProvider = Provider<Authenticator>(
   (ref) => Authenticator(
-    ref.watch(remoteServiceProvider),
-    ref.watch(secureUserStorageProvider),
-    ref.watch(secureTokensStorageProvider),
-    ref.watch(isarDatabaseProvider)
-  ),
+      ref.watch(remoteServiceProvider),
+      ref.watch(secureUserStorageProvider),
+      ref.watch(secureTokensStorageProvider),
+      ref.watch(isarDatabaseProvider)),
 );
-
 
 final authNotifierProvider = StateNotifierProvider<AuthNotifier, AuthState>(
   (ref) => AuthNotifier(

@@ -8,26 +8,24 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i7;
-import 'package:flutter/material.dart' as _i8;
-import 'package:template/app_update/domain/app_update_status_model.dart' as _i9;
+import 'package:auto_route/auto_route.dart' as _i6;
+import 'package:flutter/material.dart' as _i7;
+import 'package:template/app_update/domain/app_update_status_model.dart' as _i8;
 import 'package:template/app_update/presentation/widget/app_update_dialog.dart'
     as _i1;
 import 'package:template/auth/presentation/sign_in_page.dart' as _i3;
 import 'package:template/postes/presentation/list_postes.dart' as _i2;
 import 'package:template/splash/splash_page.dart' as _i4;
-import 'package:template/template_test/presentation/template_test_page.dart'
-    as _i5;
-import 'package:template/user/presentation/user_page.dart' as _i6;
+import 'package:template/user/presentation/user_page.dart' as _i5;
 
-abstract class $AppRouter extends _i7.RootStackRouter {
+abstract class $AppRouter extends _i6.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i7.PageFactory> pagesMap = {
+  final Map<String, _i6.PageFactory> pagesMap = {
     AppUpdateRequiredRoute.name: (routeData) {
       final args = routeData.argsAs<AppUpdateRequiredRouteArgs>();
-      return _i7.AutoRoutePage<dynamic>(
+      return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i1.AppUpdateRequiredPage(
           key: args.key,
@@ -36,33 +34,27 @@ abstract class $AppRouter extends _i7.RootStackRouter {
       );
     },
     PostsListScreen.name: (routeData) {
-      return _i7.AutoRoutePage<dynamic>(
+      return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i2.PostsListScreen(),
       );
     },
     SignInRoute.name: (routeData) {
-      return _i7.AutoRoutePage<dynamic>(
+      return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i3.SignInPage(),
       );
     },
     SplashRoute.name: (routeData) {
-      return _i7.AutoRoutePage<dynamic>(
+      return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i4.SplashPage(),
       );
     },
-    TemplatetestRoute.name: (routeData) {
-      return _i7.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i5.TemplatetestPage(),
-      );
-    },
     UserRoute.name: (routeData) {
-      return _i7.AutoRoutePage<dynamic>(
+      return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.UserPage(),
+        child: const _i5.UserPage(),
       );
     },
   };
@@ -71,11 +63,11 @@ abstract class $AppRouter extends _i7.RootStackRouter {
 /// generated route for
 /// [_i1.AppUpdateRequiredPage]
 class AppUpdateRequiredRoute
-    extends _i7.PageRouteInfo<AppUpdateRequiredRouteArgs> {
+    extends _i6.PageRouteInfo<AppUpdateRequiredRouteArgs> {
   AppUpdateRequiredRoute({
-    _i8.Key? key,
-    required _i9.AppUpdateStatusModel appUpdateStatusModel,
-    List<_i7.PageRouteInfo>? children,
+    _i7.Key? key,
+    required _i8.AppUpdateStatusModel appUpdateStatusModel,
+    List<_i6.PageRouteInfo>? children,
   }) : super(
           AppUpdateRequiredRoute.name,
           args: AppUpdateRequiredRouteArgs(
@@ -87,8 +79,8 @@ class AppUpdateRequiredRoute
 
   static const String name = 'AppUpdateRequiredRoute';
 
-  static const _i7.PageInfo<AppUpdateRequiredRouteArgs> page =
-      _i7.PageInfo<AppUpdateRequiredRouteArgs>(name);
+  static const _i6.PageInfo<AppUpdateRequiredRouteArgs> page =
+      _i6.PageInfo<AppUpdateRequiredRouteArgs>(name);
 }
 
 class AppUpdateRequiredRouteArgs {
@@ -97,9 +89,9 @@ class AppUpdateRequiredRouteArgs {
     required this.appUpdateStatusModel,
   });
 
-  final _i8.Key? key;
+  final _i7.Key? key;
 
-  final _i9.AppUpdateStatusModel appUpdateStatusModel;
+  final _i8.AppUpdateStatusModel appUpdateStatusModel;
 
   @override
   String toString() {
@@ -109,8 +101,8 @@ class AppUpdateRequiredRouteArgs {
 
 /// generated route for
 /// [_i2.PostsListScreen]
-class PostsListScreen extends _i7.PageRouteInfo<void> {
-  const PostsListScreen({List<_i7.PageRouteInfo>? children})
+class PostsListScreen extends _i6.PageRouteInfo<void> {
+  const PostsListScreen({List<_i6.PageRouteInfo>? children})
       : super(
           PostsListScreen.name,
           initialChildren: children,
@@ -118,13 +110,13 @@ class PostsListScreen extends _i7.PageRouteInfo<void> {
 
   static const String name = 'PostsListScreen';
 
-  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i3.SignInPage]
-class SignInRoute extends _i7.PageRouteInfo<void> {
-  const SignInRoute({List<_i7.PageRouteInfo>? children})
+class SignInRoute extends _i6.PageRouteInfo<void> {
+  const SignInRoute({List<_i6.PageRouteInfo>? children})
       : super(
           SignInRoute.name,
           initialChildren: children,
@@ -132,13 +124,13 @@ class SignInRoute extends _i7.PageRouteInfo<void> {
 
   static const String name = 'SignInRoute';
 
-  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
 }
 
 /// generated route for
 /// [_i4.SplashPage]
-class SplashRoute extends _i7.PageRouteInfo<void> {
-  const SplashRoute({List<_i7.PageRouteInfo>? children})
+class SplashRoute extends _i6.PageRouteInfo<void> {
+  const SplashRoute({List<_i6.PageRouteInfo>? children})
       : super(
           SplashRoute.name,
           initialChildren: children,
@@ -146,27 +138,13 @@ class SplashRoute extends _i7.PageRouteInfo<void> {
 
   static const String name = 'SplashRoute';
 
-  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i5.TemplatetestPage]
-class TemplatetestRoute extends _i7.PageRouteInfo<void> {
-  const TemplatetestRoute({List<_i7.PageRouteInfo>? children})
-      : super(
-          TemplatetestRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'TemplatetestRoute';
-
-  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i6.UserPage]
-class UserRoute extends _i7.PageRouteInfo<void> {
-  const UserRoute({List<_i7.PageRouteInfo>? children})
+/// [_i5.UserPage]
+class UserRoute extends _i6.PageRouteInfo<void> {
+  const UserRoute({List<_i6.PageRouteInfo>? children})
       : super(
           UserRoute.name,
           initialChildren: children,
@@ -174,5 +152,5 @@ class UserRoute extends _i7.PageRouteInfo<void> {
 
   static const String name = 'UserRoute';
 
-  static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
 }

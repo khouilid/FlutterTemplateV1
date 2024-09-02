@@ -105,5 +105,7 @@ def main():
     os.system("flutter pub get")
     print("Mobile app structure and files created successfully.")
 
+    
+
 if __name__ == "__main__":
     main()

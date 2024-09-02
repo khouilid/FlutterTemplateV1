@@ -8,7 +8,7 @@ part of 'posts_dto.dart';
 
 _$PostsDtoImpl _$$PostsDtoImplFromJson(Map<String, dynamic> json) =>
     _$PostsDtoImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       title: json['title'] as String,
       body: json['body'] as String,
     );

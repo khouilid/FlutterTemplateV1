@@ -9,7 +9,7 @@ part of 'response_create_post_dto.dart';
 _$ResponseCreatePostDtoImpl _$$ResponseCreatePostDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$ResponseCreatePostDtoImpl(
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$ResponseCreatePostDtoImplToJson(
