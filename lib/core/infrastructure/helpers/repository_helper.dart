@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 import 'package:isar/isar.dart';
 
-import '../../domain/failure.dart';
-import '../../domain/fresh.dart';
-import '../exceptions/dio_exception.dart';
+import 'package:template/core/domain/failure.dart';
+import 'package:template/core/domain/fresh.dart';
+import 'package:template/core/infrastructure/exceptions/dio_exception.dart';
 
 typedef FutureEitherFailureOr<T> = Future<Either<Failure, T>>;
 
