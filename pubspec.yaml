@@ -81,9 +81,9 @@ flutter:
     - assets/fonts/
 
 scripts:
-  init: flutter clean; flutter pub get; flutter gen-l10n; flutter pub run build_runner build -d
-  build: flutter pub run build_runner build -d
-  watch: flutter pub run build_runner watch
+  init: flutter clean; flutter pub get; flutter gen-l10n; dart run build_runner build -d
+  build: dart run build_runner build -d
+  watch: dart run build_runner watch
   format: flutter format lib
   android: flutter build apk --release
   get: flutter pub get
