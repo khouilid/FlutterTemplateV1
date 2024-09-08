@@ -85,7 +85,7 @@ class RemoteServiceHelper {
     } catch (e, s) {
       Logger().i(e);
       Logger().d(s);
-      if (e is DioError) {
+      if (e is DioException) {
         print(e.response?.data);
         if (e.isNoConnectionError) {
           if (throwError) {
