@@ -13,10 +13,10 @@ import 'package:flutter/material.dart' as _i7;
 import 'package:template/app_update/domain/app_update_status_model.dart' as _i8;
 import 'package:template/app_update/presentation/widget/app_update_dialog.dart'
     as _i1;
-import 'package:template/auth/presentation/sign_in_page.dart' as _i3;
-import 'package:template/postes/presentation/list_postes.dart' as _i2;
-import 'package:template/splash/splash_page.dart' as _i4;
-import 'package:template/user/presentation/user_page.dart' as _i5;
+import 'package:template/Features/auth/presentation/sign_in_page.dart' as _i3;
+import 'package:template/Features/postes/presentation/list_postes.dart' as _i2;
+import 'package:template/Features/splash/splash_page.dart' as _i4;
+import 'package:template/Features/user/presentation/user_page.dart' as _i5;
 
 abstract class $AppRouter extends _i6.RootStackRouter {
   $AppRouter({super.navigatorKey});

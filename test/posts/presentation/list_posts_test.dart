@@ -9,7 +9,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:template/postes/presentation/list_postes.dart';
+import 'package:template/Features/postes/presentation/list_postes.dart';
 
 Future<void> main() async {
   setUp(() {});
