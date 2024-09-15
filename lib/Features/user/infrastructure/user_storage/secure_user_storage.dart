@@ -18,7 +18,7 @@ class SecureUserStorage implements UserStorage {
     if (_cachedUser != null) {
       return _cachedUser;
     }
-    final jsonResponse = await _storage.read(key: secureStorageUserKey);
+    final jsonResponse = await _storage.read(key: encryptKey);
 
     if (jsonResponse == null) {
       return null;
@@ -38,7 +38,7 @@ class SecureUserStorage implements UserStorage {
     _cachedUser = user;
     await clear();
     await _storage.write(
-      key: secureStorageUserKey,
+      key: encryptKey,
       value: json.encode(user.toJson()),
     );
   }
@@ -46,6 +46,6 @@ class SecureUserStorage implements UserStorage {
   @override
   Future<void> clear() {
     _cachedUser = null;
-    return _storage.delete(key: secureStorageUserKey);
+    return _storage.delete(key: encryptKey);
   }
 }

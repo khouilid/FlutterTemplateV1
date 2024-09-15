@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:flash/flash.dart';
 import 'package:flash/flash_helper.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,8 @@ import 'package:template/Features/auth/application/auth_notifier.dart';
 import 'package:template/Features/auth/shared/providers.dart';
 import 'package:template/Features/user/shared/user_providers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:template/core/config/environment.dart';
+import 'package:template/core/infrastructure/helpers/logger_interceptor.dart';
 import '../../language_change/shared/providers.dart';
 import '../../theme/shared/light_theme.dart';
 import '../../theme/shared/providers.dart';
@@ -41,6 +44,21 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
       // Initialize the app push notifications when the app starts. We do this here to
       final notificationRepositoryN = ref.read(notificationRepositoryProvider);
       notificationRepositoryN.getToken();
+
+      ref.read(dioProvider)
+        ..options = BaseOptions(
+          headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+            'Accept': 'application/json',
+          },
+          validateStatus: (status) =>
+              status != null && status >= 200 && status < 400,
+        )
+        ..interceptors.add(
+          LoggingInterceptor(
+            baseUrl: baseUrl,
+          ),
+        );
 
       return unit;
     },

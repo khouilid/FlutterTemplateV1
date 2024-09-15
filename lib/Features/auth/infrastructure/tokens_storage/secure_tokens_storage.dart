@@ -19,7 +19,7 @@ class SecureTokensStorage implements TokensStorage {
       return _cachedTokens;
     }
     try {
-      final jsonResponse = await _storage.read(key: secureStorageTokensKey);
+      final jsonResponse = await _storage.read(key: encryptKey);
 
       if (jsonResponse == null) {
         return null;
@@ -38,7 +38,7 @@ class SecureTokensStorage implements TokensStorage {
     _cachedTokens = tokens;
 
     return _storage.write(
-      key: secureStorageTokensKey,
+      key: encryptKey,
       value: json.encode(
         tokens.toJson(),
       ),
@@ -48,6 +48,6 @@ class SecureTokensStorage implements TokensStorage {
   @override
   Future<void> clear() {
     _cachedTokens = null;
-    return _storage.delete(key: secureStorageTokensKey);
+    return _storage.delete(key: encryptKey);
   }
 }

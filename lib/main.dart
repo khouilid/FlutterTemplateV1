@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
-import 'core/config/environment.dart';
 import 'core/presentation/app_widget.dart';
 import 'core/presentation/managers/orientation_manager.dart';
 
@@ -11,8 +10,6 @@ void main() async {
   /// This function is used to ensure that the app is initialized before it is run.
   WidgetsFlutterBinding.ensureInitialized();
 
-  /// This function is used to load the .env file before the app is run.
-  await dotenv.load(fileName: fileName());
 
   registerErrorHandlers();
 

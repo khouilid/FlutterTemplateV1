@@ -59,7 +59,7 @@ class SignInPage extends HookConsumerWidget {
                 SizedBox(
                   height: 60,
                 ),
-                    SizedBox(
+                SizedBox(
                   height: 60,
                 ),
                 Text(
