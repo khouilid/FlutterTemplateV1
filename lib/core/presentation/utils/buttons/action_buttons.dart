@@ -20,7 +20,7 @@ class ActionButton extends ConsumerWidget {
       this.width = 50,
       this.action = "",
       required this.child,
-      this.borderRadius = 15,
+      this.borderRadius = 5,
       this.color = Colors.transparent,
       this.borderSideColor = Colors.transparent,
       this.elevation = 1.0})
@@ -28,7 +28,6 @@ class ActionButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var primary;
     return SizedBox(
       height: height,
       width: width,
@@ -37,9 +36,8 @@ class ActionButton extends ConsumerWidget {
         style: ElevatedButton.styleFrom(
           elevation: elevation,
           padding: EdgeInsets.zero,
-          backgroundColor: color == Colors.transparent
-              ? AppColors.chateauGreen
-              : color,
+          backgroundColor:
+              color == Colors.transparent ? AppColors.chateauGreen : color,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius),
               side: BorderSide(color: borderSideColor)),
@@ -87,9 +85,8 @@ class ActionButtonIcon extends ConsumerWidget {
         style: ElevatedButton.styleFrom(
           elevation: elevation,
           padding: EdgeInsets.zero,
-          backgroundColor: color == Colors.transparent
-              ? AppColors.chateauGreen
-              : color,
+          backgroundColor:
+              color == Colors.transparent ? AppColors.chateauGreen : color,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius),
               side: BorderSide(color: borderSideColor)),

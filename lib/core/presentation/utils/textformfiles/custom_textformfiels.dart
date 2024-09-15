@@ -27,7 +27,7 @@ class CustomTextFormField extends StatelessWidget {
   final int? minLines;
   final int? maxLines;
   final EdgeInsetsGeometry contentPadding;
-  final void Function()? onTap; 
+  final void Function()? onTap;
 
   const CustomTextFormField({
     super.key,
@@ -87,9 +87,8 @@ class CustomTextFormField extends StatelessWidget {
         inputFormatters: inputFormatters,
         maxLines: maxLines,
         minLines: minLines,
-        onTap: onTap ,
+        onTap: onTap,
         decoration: InputDecoration(
-          // prefix: prefixIcon,
           filled: true,
           fillColor: fillColor,
           label: label,
@@ -100,10 +99,16 @@ class CustomTextFormField extends StatelessWidget {
           contentPadding: contentPadding,
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            borderRadius: BorderRadius.circular(5),
+          ),
           disabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: disabledBorderColor ??
-                  Theme.of(context).colorScheme.surfaceVariant,
+              color:
+                  disabledBorderColor ?? Theme.of(context).colorScheme.primary,
             ),
             borderRadius: BorderRadius.circular(5),
           ),

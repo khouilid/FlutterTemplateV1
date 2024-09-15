@@ -11,7 +11,7 @@ class EmailTextFormField extends StatelessWidget {
   final Color? fillColor;
   final void Function(String)? onChanged;
 
-  const EmailTextFormField({
+  const   EmailTextFormField({
     super.key,
     required this.controller,
     this.readOnly = false,
@@ -37,6 +37,7 @@ class EmailTextFormField extends StatelessWidget {
       textInputAction: TextInputAction.next,
       hintText: hintText,
       onEditingComplete: onEditingComplete,
+
     );
   }
 }

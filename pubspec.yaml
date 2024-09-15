@@ -40,6 +40,8 @@ dependencies:
   url_launcher: ^6.3.0
   flutter_animate: ^4.5.0
   flutter_screenutil: ^5.9.3
+  firebase_messaging: ^15.1.1
+  flutter_local_notifications: ^17.2.2
 
 dev_dependencies:
   auto_route_generator: ^7.3.2
@@ -79,6 +81,7 @@ flutter:
     - assets/icons/languages/
     - assets/jsons/
     - assets/fonts/
+    - assets/image/
 
 scripts:
   init: flutter clean; flutter pub get; flutter gen-l10n; dart run build_runner build -d

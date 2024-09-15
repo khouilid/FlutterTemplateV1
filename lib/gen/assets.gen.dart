@@ -50,7 +50,7 @@ class Assets {
   Assets._();
 
   static const String aEnv = '.env.dev';
-  // static const String aEnv = '.env.prod';
+  static const String aEnv = '.env.prod';
   static const $AssetsIconsGen icons = $AssetsIconsGen();
 
   /// List of all assets

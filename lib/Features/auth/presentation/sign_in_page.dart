@@ -57,7 +57,10 @@ class SignInPage extends HookConsumerWidget {
             child: Column(
               children: <Widget>[
                 SizedBox(
-                  height: 30,
+                  height: 60,
+                ),
+                    SizedBox(
+                  height: 60,
                 ),
                 Text(
                   "Sign In",
