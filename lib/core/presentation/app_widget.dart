@@ -39,7 +39,7 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
       await ref.read(localizationNotifierProvider.notifier).getLocale();
 
       /// Initialize the database when the app starts. We do this here to
-      await ref.read(isarDatabaseProvider).init();
+      await ref.read(localDatabaseProvider);
 
       // Initialize the app push notifications when the app starts. We do this here to
       final notificationRepositoryN = ref.read(notificationRepositoryProvider);

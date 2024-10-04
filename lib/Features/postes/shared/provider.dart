@@ -15,7 +15,7 @@ final postRemoteRepositoryProvider = Provider<PostsRemoteDataSource>(
     (ref) => PostsRemoteDataSource(ref.watch(postService)));
 
 final postLocalRepositoryProvider = Provider<PostsLocalService>(
-    (ref) => PostsLocalService(ref.watch(isarDatabaseProvider)));
+    (ref) => PostsLocalService(ref.watch(localDatabaseProvider)));
 
 final postRepository = Provider<PostsRepository>(
   (ref) => PostsRepository(

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../domain/posts_model.dart';
-import '../isar/post_isar.dart';
+import '../isar/post_local.dart';
 part 'posts_dto.freezed.dart';
 part 'posts_dto.g.dart';
 
@@ -34,17 +34,17 @@ class PostsDto with _$PostsDto {
     );
   }
 
-  factory PostsDto.fromIsar(PostIsar posts) {
-    return PostsDto(
-      id: posts.id,
-      title: posts.title,
-      body: posts.body,
-    );
-  }
+  // factory PostsDto.fromIsar(PostIsar posts) {
+  //   return PostsDto(
+  //     id: posts.id,
+  //     title: posts.title,
+  //     body: posts.body,
+  //   );
+  // }
 
-  PostIsar toIsar() => PostIsar()
-    ..id = id!
-    ..title = title
-    ..body = body;
+  // PostIsar toIsar() => PostIsar()
+  //   ..id = id!
+  //   ..title = title
+  //   ..body = body;
     
 }

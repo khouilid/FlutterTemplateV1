@@ -26,7 +26,7 @@ final {file_name_prefix.replace("_", "").lower()}RemoteRepositoryProvider =
 
 final {file_name_prefix.replace("_", "").lower()}LocalRepositoryProvider =
     Provider<{file_name_prefix.capitalize().replace("_", "")}LocalDataSource>(
-  (ref) => {file_name_prefix.capitalize().replace("_", "")}LocalDataSource(ref.watch(isarDatabaseProvider)),
+  (ref) => {file_name_prefix.capitalize().replace("_", "")}LocalDataSource(ref.watch(localDatabaseProvider)),
 );
 
 final {file_name_prefix.replace("_", "").lower()}RepositoryProvider = Provider<{file_name_prefix.capitalize().replace("_", "")}Repository>(

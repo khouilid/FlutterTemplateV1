@@ -1,13 +1,10 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:isar/isar.dart';
-import 'package:logger/logger.dart';
-import 'package:template/core/domain/failure.dart';
-import 'package:template/core/infrastructure/database/isar_database.dart';
-import 'package:template/core/infrastructure/helpers/repository_helper.dart';
 
+import 'package:template/core/domain/failure.dart';
+import 'package:template/core/infrastructure/database/local_database.dart';
+import 'package:template/core/infrastructure/helpers/repository_helper.dart';
 
 import '../../user/domain/user_domain.dart';
 import '../../user/infrastructure/user_storage/user_storage.dart';
@@ -21,13 +18,13 @@ class Authenticator with RepositoryHelper {
   final AuthRemoteService _remoteService;
   final UserStorage _userStorage;
   final TokensStorage _tokensStorage;
-  final IsarDatabase _isarDatabase;
+  final AppDatabase _localDatabase;
 
   const Authenticator(
     this._remoteService,
     this._userStorage,
     this._tokensStorage,
-    this._isarDatabase,
+    this._localDatabase,
   );
 
   Future<User?> getSignedInUser() async {
@@ -128,17 +125,18 @@ class Authenticator with RepositoryHelper {
         return right(unit);
       }
 
-      // await _isarDatabase.isar.writeTxn(
-      //   () => _isarDatabase.isar.clear(),
+      // await _localDatabase.isar.writeTxn(
+      //   () => _localDatabase.isar.clear(),
       // );
 
       return right(unit);
     } on PlatformException {
       return left(const Failure.storage());
     } catch (e) {
-      if (e is IsarError) {
-        return left(const Failure.storage());
-      }
+      //! This is a temporary solution to handle errors.
+      // if (e is IsarError) {
+      //   return left(const Failure.storage());
+      // }
       rethrow;
     }
   }

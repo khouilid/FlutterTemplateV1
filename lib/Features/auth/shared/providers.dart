@@ -23,7 +23,7 @@ final authenticatorProvider = Provider<Authenticator>(
       ref.watch(remoteServiceProvider),
       ref.watch(secureUserStorageProvider),
       ref.watch(secureTokensStorageProvider),
-      ref.watch(isarDatabaseProvider)),
+      ref.watch(localDatabaseProvider)),
 );
 
 final authNotifierProvider = StateNotifierProvider<AuthNotifier, AuthState>(

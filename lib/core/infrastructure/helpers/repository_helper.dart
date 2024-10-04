@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
-import 'package:isar/isar.dart';
 
 import 'package:template/core/domain/failure.dart';
 import 'package:template/core/domain/fresh.dart';
@@ -29,11 +28,12 @@ mixin RepositoryHelper {
         Failure.storage(e.message),
       );
     } catch (e) {
-      if (e is IsarError) {
-        return left(
-          Failure.storage(e.message),
-        );
-      }
+      // ! This is a temporary solution to handle errors.
+      // if (e is IsarError) {
+      //   return left(
+      //     Failure.storage(e.message),
+      //   );
+      // }
       return left(Failure.unknown(e.toString()));
     }
   }
