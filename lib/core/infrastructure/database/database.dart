@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
-import 'package:template/Features/user/infrastructure/isar/user_local.dart';
+import 'package:template/Features/user/infrastructure/drift/user_drift.dart';
 
 part 'database.g.dart';
 

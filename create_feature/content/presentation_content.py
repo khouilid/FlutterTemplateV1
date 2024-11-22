@@ -7,10 +7,10 @@ def generate_presentation_files(parent_dir):
 
     suffix = "_page.dart"
     content = f''' 
-import 'package:auto_route/auto_route.dart';
+ 
 import 'package:flutter/material.dart';
 
-@RoutePage()
+ 
 class {file_name_prefix.capitalize().replace("_", "")}Page extends StatelessWidget {{
   const {file_name_prefix.capitalize().replace("_", "")}Page({{Key? key}}) : super(key: key);
 
@@ -28,7 +28,7 @@ class {file_name_prefix.capitalize().replace("_", "")}Page extends StatelessWidg
     
     suffix = "_list_page.dart"
     content = f''' 
-import 'package:auto_route/auto_route.dart';
+ 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../core/presentation/managers/color_manager.dart';
@@ -36,7 +36,7 @@ import '../shared/{file_name_prefix}_providers.dart';
 import '../application/{file_name_prefix}_states.dart';
 
 
-@RoutePage()
+ 
 class {file_name_prefix.capitalize().replace("_", "")}ListPage extends ConsumerStatefulWidget {{
   const {file_name_prefix.capitalize().replace("_", "")}ListPage({{Key? key}}) : super(key: key);
 

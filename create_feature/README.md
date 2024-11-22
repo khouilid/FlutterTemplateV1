@@ -152,7 +152,7 @@ To understand how each element of a module functions, we’ll explore two use ca
 
 ![alt text](https://miro.medium.com/v2/resize%3Afit%3A720/format%3Awebp/1%2AkOko60IS_A-C73hDLgFmIQ.png)
 
-The presentation layer typically contains the main screens of a module, such as profile_page.dart or settings_page.dart. These files are named after the module and end with **Page** to assist in routing within the application (e.g., ProfilePage, SettingsPage). At the top of these files, you’ll find the **@RoutePage()** annotation, which further aids in routing.
+The presentation layer typically contains the main screens of a module, such as profile_page.dart or settings_page.dart. These files are named after the module and end with **Page** to assist in routing within the application (e.g., ProfilePage, SettingsPage). At the top of these files, you’ll find the ** ** annotation, which further aids in routing.
 
 ### 2 Application Layer
 

@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -7,17 +6,11 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   Future.delayed(const Duration(seconds: 2), () {
-    //     context.router.replace(SignInRoute());
-    //   });
-    // });
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
-          children: [
+          children: [ 
             const Spacer(flex: 2),
             Image.network("https://i.postimg.cc/Qtxc8xgv/welcome-image.png"),
             const Spacer(flex: 3),
@@ -44,7 +37,7 @@ class SplashPage extends StatelessWidget {
             const Spacer(flex: 3),
             TextButton.icon(
               onPressed: () {
-                context.go('splash');
+                context.goNamed('home');
               },
               icon: const Text("Skip"),
               label: const Icon(

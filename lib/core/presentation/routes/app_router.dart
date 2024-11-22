@@ -1,4 +1,4 @@
-// import 'package:auto_route/auto_route.dart';
+//
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:template/Features/postes/presentation/list_postes.dart';

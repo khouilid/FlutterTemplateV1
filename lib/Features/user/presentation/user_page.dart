@@ -1,15 +1,15 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
+import 'package:template/core/presentation/routes/app_router.dart';
 import 'package:template/core/presentation/utils/bottom_sheet_model.dart';
 import 'package:template/Features/user/presentation/widgets/language_bottom_sheet.dart';
 import 'package:template/Features/user/shared/user_providers.dart';
 
 import 'widgets/logout_bottom_sheet.dart';
 
-@RoutePage()
 class UserPage extends ConsumerWidget {
   const UserPage({Key? key}) : super(key: key);
 
@@ -33,7 +33,7 @@ class UserPage extends ConsumerWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    context.router.maybePop();
+                    context.pop();
                   },
                   child: Container(
                       alignment: Alignment.center,
