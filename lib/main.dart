@@ -19,9 +19,6 @@ void main() async {
   runApp(const ProviderScope(child: AppWidget()));
 }
 
-
-
-
 /// This function is used to register error handlers for the app to handle errors and exceptions in a better way.
 /// It is called in the main function before the app is run.
 void registerErrorHandlers() {

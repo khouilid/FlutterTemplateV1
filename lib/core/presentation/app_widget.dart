@@ -13,6 +13,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:template/core/config/environment.dart';
 import 'package:template/core/infrastructure/helpers/logger_interceptor.dart';
 import 'package:template/core/presentation/routes/app_router.dart';
+import 'package:template/theme/shared/dark_theme.dart';
 import '../../language_change/shared/providers.dart';
 import '../../theme/shared/light_theme.dart';
 import '../../theme/shared/providers.dart';
@@ -93,6 +94,7 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
     return ScreenUtilInit(
         minTextAdapt: true,
         child: MaterialApp.router(
+          darkTheme: darkTheme,
           title: StringsManager.appName,
           theme: lightTheme.copyWith(
             extensions: [
