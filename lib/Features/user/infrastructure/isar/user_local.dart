@@ -1,7 +1,5 @@
 import 'package:drift/drift.dart';
-import 'package:drift_flutter/drift_flutter.dart';
 
-part 'user_local.g.dart';
 
 class UserLocal extends Table {
   IntColumn get id => integer().autoIncrement()();

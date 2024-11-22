@@ -1,19 +1,18 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flash/flash.dart';
-import 'package:flash/flash_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:template/Features/notifications/shared/notifications_providers.dart';
-import 'package:template/app_update/presentation/widget/app_update_dialog.dart';
-import 'package:template/app_update/shared/providers.dart';
+
 import 'package:template/Features/auth/application/auth_notifier.dart';
 import 'package:template/Features/auth/shared/providers.dart';
 import 'package:template/Features/user/shared/user_providers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:template/core/config/environment.dart';
 import 'package:template/core/infrastructure/helpers/logger_interceptor.dart';
+import 'package:template/core/presentation/routes/app_router.dart';
 import '../../language_change/shared/providers.dart';
 import '../../theme/shared/light_theme.dart';
 import '../../theme/shared/providers.dart';
@@ -72,9 +71,6 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
     /// this is the theme provider that we created in the [theme_provider.dart] file.
     final themeProvider = ref.watch(themeNotifierProvider);
 
-    /// this is the app router that we created in the [app_router.dart] file.
-    final appRouter = ref.watch(appRouterProvider);
-
     /// We use the [ref.listen] method to listen to the changes in the [initializationProvider] provider.
     ref.listen(
       initializationProvider,
@@ -94,26 +90,10 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
       },
     );
 
-    ref.listen(appUpdateNotifierProvider, (previous, next) {
-      next.maybeMap(
-          orElse: () {},
-          hasAnUpdate: (_) {
-            if (_.appUpdateStatusModel.updateAvailable &&
-                _.appUpdateStatusModel.optional) {
-              updateDialog(context, _.appUpdateStatusModel);
-            }
-            if (_.appUpdateStatusModel.updateAvailable &&
-                !_.appUpdateStatusModel.optional) {}
-          });
-    });
-
     return ScreenUtilInit(
         minTextAdapt: true,
         child: MaterialApp.router(
           title: StringsManager.appName,
-          builder: (context, child) {
-            return Toast(navigatorKey: appRouter.navigatorKey, child: child!);
-          },
           theme: lightTheme.copyWith(
             extensions: [
               FlashToastTheme(
@@ -129,8 +109,7 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
             ],
           ),
           debugShowCheckedModeBanner: false,
-          routeInformationParser: appRouter.defaultRouteParser(),
-          routerDelegate: appRouter.delegate(),
+          routerConfig: GoRouterSetup.router,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           locale: localizationProvider,

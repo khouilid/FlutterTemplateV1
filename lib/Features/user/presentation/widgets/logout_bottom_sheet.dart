@@ -38,7 +38,7 @@ class LogOutBottomSheet extends ConsumerWidget {
           ActionButton(
             width: MediaQuery.of(context).size.width,
             onPressed: () {
-              context.router.pop();
+              context.router.maybePop();
             },
             color: Theme.of(context).colorScheme.primary,
             action: "Cancel",

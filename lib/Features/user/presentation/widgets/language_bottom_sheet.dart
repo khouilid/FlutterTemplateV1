@@ -44,7 +44,7 @@ class LanguageBottomSheet extends ConsumerWidget {
                     ref.read(localizationNotifierProvider.notifier).setLocale(
                           Locale(language.languageCode),
                         );
-                    context.router.pop();
+                    context.maybePop();
                   },
                   color: Theme.of(context).colorScheme.primary,
                   action: language.title,

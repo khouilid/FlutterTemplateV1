@@ -26,11 +26,6 @@ final splashStateProvider = StateProvider<bool>(
   (ref) => false,
 );
 
-/// this is the app router that we created in the [app_router.dart] file.
-final appRouterProvider = Provider<AppRouter>(
-  (ref) => AppRouter(),
-);
-
 /// this is the internet connectivity provider that we created in the [internet_connection.dart] file.
 final internetConnectivityProvider =
     Provider<Connectivity>((ref) => Connectivity());

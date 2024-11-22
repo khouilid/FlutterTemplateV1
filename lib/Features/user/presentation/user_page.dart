@@ -33,7 +33,7 @@ class UserPage extends ConsumerWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    context.router.pop();
+                    context.router.maybePop();
                   },
                   child: Container(
                       alignment: Alignment.center,

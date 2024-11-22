@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../domain/posts_model.dart';
-import '../isar/post_local.dart';
 part 'posts_dto.freezed.dart';
 part 'posts_dto.g.dart';
 
