@@ -2,6 +2,8 @@ import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
 import 'package:template/Features/user/infrastructure/isar/user_local.dart';
 
+part 'database.g.dart';
+
 const _schemas = <Type>[UserLocal];
 
 @DriftDatabase(tables: _schemas)

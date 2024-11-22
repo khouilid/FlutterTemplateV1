@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:template/core/presentation/routes/app_router.gr.dart';
-
+import 'package:go_router/go_router.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -45,7 +44,7 @@ class SplashPage extends StatelessWidget {
             const Spacer(flex: 3),
             TextButton.icon(
               onPressed: () {
-                 context.router.replace(SignInRoute());
+                context.go('splash');
               },
               icon: const Text("Skip"),
               label: const Icon(

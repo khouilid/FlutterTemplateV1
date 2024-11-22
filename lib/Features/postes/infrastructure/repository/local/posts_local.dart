@@ -1,5 +1,5 @@
 
-import "../../../../../core/infrastructure/database/local_database.dart";
+import "../../../../../core/infrastructure/database/database.dart";
 import 'package:template/Features/postes/infrastructure/dtos/posts_dto.dart';
 
 class PostsLocalService {

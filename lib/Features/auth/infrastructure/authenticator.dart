@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import 'package:template/core/domain/failure.dart';
-import 'package:template/core/infrastructure/database/local_database.dart';
+import 'package:template/core/infrastructure/database/database.dart';
 import 'package:template/core/infrastructure/helpers/repository_helper.dart';
 
 import '../../user/domain/user_domain.dart';
