@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 import 'core/presentation/app_widget.dart';
-import 'core/presentation/managers/orientation_manager.dart';
+import 'theme/shared/managers/orientation_manager.dart';
 
 void main() async {
   /// This function is used to ensure that the app is initialized before it is run.

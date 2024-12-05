@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
-import '../../presentation/managers/strings_manager.dart';
+import '../../../theme/shared/managers/strings_manager.dart';
 import '../exceptions/dio_exception.dart' as exp;
 import '../extensions/dio_extensions.dart';
 import '../remote_response.dart';

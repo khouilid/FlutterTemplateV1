@@ -17,7 +17,7 @@ import 'package:template/theme/shared/dark_theme.dart';
 import '../../theme/shared/light_theme.dart';
 import '../../theme/shared/providers.dart';
 import '../shared/providers.dart';
-import 'managers/strings_manager.dart';
+import '../../theme/shared/managers/strings_manager.dart';
 
 class AppWidget extends ConsumerStatefulWidget {
   const AppWidget({super.key});

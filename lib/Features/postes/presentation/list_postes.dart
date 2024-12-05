@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../../core/presentation/managers/color_manager.dart';
+import '../../../theme/shared/managers/color_manager.dart';
 import '../application/posts_states.dart';
 import '../shared/provider.dart';
 

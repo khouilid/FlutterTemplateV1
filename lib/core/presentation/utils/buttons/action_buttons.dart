@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:template/core/presentation/managers/color_manager.dart';
+import 'package:template/theme/shared/managers/color_manager.dart';
 
 class ActionButton extends ConsumerWidget {
   final VoidCallback onPressed;
