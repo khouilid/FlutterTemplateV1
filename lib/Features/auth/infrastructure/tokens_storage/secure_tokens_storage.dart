@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:template/core/config/environment.dart';
+import 'package:template/config/env/environment.dart';
 
 import '../dtos/tokens_dto.dart';
 import 'tokens_storage.dart';

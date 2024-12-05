@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:template/core/config/environment.dart';
+import 'package:template/config/env/environment.dart';
 
 import '../dtos/user_dto.dart';
 import 'user_storage.dart';

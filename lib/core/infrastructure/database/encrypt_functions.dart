@@ -1,6 +1,6 @@
 import 'package:encrypt/encrypt.dart';
 
-import '../../config/environment.dart';
+import '../../../config/env/environment.dart';
 
 final _key = Key.fromUtf8(encryptKey);
 final _iv = IV.fromLength(16);

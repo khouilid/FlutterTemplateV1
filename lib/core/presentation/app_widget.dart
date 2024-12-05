@@ -10,12 +10,12 @@ import 'package:template/Features/auth/application/auth_notifier.dart';
 import 'package:template/Features/auth/shared/providers.dart';
 import 'package:template/Features/profile/shared/user_providers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:template/core/config/environment.dart';
+import 'package:template/config/env/environment.dart';
 import 'package:template/core/infrastructure/helpers/logger_interceptor.dart';
 import 'package:template/core/presentation/routes/app_router.dart';
-import 'package:template/core/theme/shared/dark_theme.dart';
-import '../theme/shared/light_theme.dart';
-import '../theme/shared/providers.dart';
+import 'package:template/theme/shared/dark_theme.dart';
+import '../../theme/shared/light_theme.dart';
+import '../../theme/shared/providers.dart';
 import '../shared/providers.dart';
 import 'managers/strings_manager.dart';
 

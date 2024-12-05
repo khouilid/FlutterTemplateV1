@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../shared/providers.dart';
+import '../../core/shared/providers.dart';
 import '../application/theme_notifier.dart';
 import '../infrastructure/secure_theme_storage.dart';
 import '../infrastructure/storage/theme_storage.dart';

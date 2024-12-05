@@ -1,5 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import '../../infrastructure/extensions/bool_parse_extension.dart';
+import '../../core/infrastructure/extensions/bool_parse_extension.dart';
 
 import 'storage/theme_storage.dart';
 

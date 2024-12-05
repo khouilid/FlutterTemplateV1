@@ -4,7 +4,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../infrastructure/database/database.dart';
 import '../infrastructure/helpers/internet_connection.dart';
-import 'package:template/core/presentation/routes/app_router.dart';
 
 /// this is the flutter secure storage provider that we created in the [flutter_secure_storage_provider.dart] file.
 final flutterSecureStorageProvider = Provider<FlutterSecureStorage>(
