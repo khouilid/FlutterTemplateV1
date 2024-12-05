@@ -12,7 +12,7 @@ import 'package:template/Features/profile/shared/user_providers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:template/config/env/environment.dart';
 import 'package:template/core/infrastructure/helpers/logger_interceptor.dart';
-import 'package:template/core/presentation/routes/app_router.dart';
+import 'package:template/config/routes/app_router.dart';
 import 'package:template/theme/shared/dark_theme.dart';
 import '../../theme/shared/light_theme.dart';
 import '../../theme/shared/providers.dart';

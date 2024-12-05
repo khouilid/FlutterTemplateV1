@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:template/Features/auth/shared/providers.dart';
-import 'package:template/core/presentation/routes/app_router.dart';
+import 'package:template/config/routes/app_router.dart';
 import 'package:template/core/presentation/utils/buttons/action_buttons.dart';
 
 class LogOutBottomSheet extends ConsumerWidget {

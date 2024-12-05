@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
-import 'package:template/core/presentation/routes/app_router.dart';
+import 'package:template/config/routes/app_router.dart';
 import 'package:template/core/presentation/utils/bottom_sheet_model.dart';
 import 'package:template/Features/profile/presentation/widgets/language_bottom_sheet.dart';
 import 'package:template/Features/profile/shared/user_providers.dart';
