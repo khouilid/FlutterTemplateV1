@@ -87,7 +87,7 @@ flutter:
     - assets/images/
 
 scripts:
-  init: flutter clean; flutter pub get; flutter gen-l10n; dart run build_runner build -d
+  init: flutter clean; flutter pub get; dart run build_runner build -d
   build: dart run build_runner build -d
   watch: dart run build_runner watch
   format: flutter format lib

@@ -13,10 +13,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:template/core/config/environment.dart';
 import 'package:template/core/infrastructure/helpers/logger_interceptor.dart';
 import 'package:template/core/presentation/routes/app_router.dart';
-import 'package:template/theme/shared/dark_theme.dart';
-import '../../language_change/shared/providers.dart';
-import '../../theme/shared/light_theme.dart';
-import '../../theme/shared/providers.dart';
+import 'package:template/core/theme/shared/dark_theme.dart';
+import '../theme/shared/light_theme.dart';
+import '../theme/shared/providers.dart';
 import '../shared/providers.dart';
 import 'managers/strings_manager.dart';
 
@@ -34,9 +33,6 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
     (ref) async {
       /// Initialize the Theme when the app starts. We do this here to
       await ref.read(themeNotifierProvider.notifier).getThemeMode();
-
-      /// Initialize the Localization when the app starts. We do this here to
-      await ref.read(localizationNotifierProvider.notifier).getLocale();
 
       /// Initialize the database when the app starts. We do this here to
       await ref.read(localDatabaseProvider);
@@ -67,7 +63,7 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
   @override
   Widget build(BuildContext context) {
     /// this is the localization provider that we created in the [language_change_provider.dart] file.
-    final localizationProvider = ref.watch(localizationNotifierProvider);
+    // final localizationProvider = ref.watch(localizationNotifierProvider);
 
     /// this is the theme provider that we created in the [theme_provider.dart] file.
     final themeProvider = ref.watch(themeNotifierProvider);
@@ -114,7 +110,7 @@ class _AppWidgetState extends ConsumerState<AppWidget> {
           routerConfig: GoRouterSetup.router,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          locale: localizationProvider,
+          // locale: localizationProvider,
         ));
   }
 }
