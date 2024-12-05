@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:template/core/shared/providers.dart';
-import '../../user/shared/user_providers.dart';
+import '../../profile/shared/user_providers.dart';
 import '../application/auth_notifier.dart';
 import '../application/auth_states.dart';
 import '../infrastructure/auth_remote_service.dart';

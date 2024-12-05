@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:template/core/domain/failure.dart';
-import 'package:template/Features/user/domain/user_domain.dart';
+import 'package:template/Features/profile/domain/user_domain.dart';
 
 part 'auth_notifier.freezed.dart';
 

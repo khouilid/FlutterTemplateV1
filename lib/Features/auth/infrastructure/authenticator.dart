@@ -6,8 +6,8 @@ import 'package:template/core/domain/failure.dart';
 import 'package:template/core/infrastructure/database/database.dart';
 import 'package:template/core/infrastructure/helpers/repository_helper.dart';
 
-import '../../user/domain/user_domain.dart';
-import '../../user/infrastructure/user_storage/user_storage.dart';
+import '../../profile/domain/user_domain.dart';
+import '../../profile/infrastructure/user_storage/user_storage.dart';
 
 import '../domain/auth_response.dart';
 import '../domain/tokens.dart';

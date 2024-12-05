@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:template/Features/user/infrastructure/dtos/user_dto.dart';
+import 'package:template/Features/profile/infrastructure/dtos/user_dto.dart';
 
 part 'user_domain.freezed.dart';
 

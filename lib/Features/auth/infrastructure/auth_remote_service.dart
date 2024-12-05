@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:template/core/infrastructure/helpers/remote_service_helper.dart';
-import 'package:template/Features/user/infrastructure/dtos/user_dto.dart';
+import 'package:template/Features/profile/infrastructure/dtos/user_dto.dart';
 import 'dtos/auth_response_dto.dart';
 import 'dtos/token_dto.dart';
 import 'dtos/tokens_dto.dart';

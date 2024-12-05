@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:template/Features/user/infrastructure/dtos/user_dto.dart';
+import 'package:template/Features/profile/infrastructure/dtos/user_dto.dart';
 
 import '../../domain/auth_response.dart';
 import 'token_dto.dart';

@@ -8,7 +8,7 @@ import 'package:template/Features/notifications/shared/notifications_providers.d
 
 import 'package:template/Features/auth/application/auth_notifier.dart';
 import 'package:template/Features/auth/shared/providers.dart';
-import 'package:template/Features/user/shared/user_providers.dart';
+import 'package:template/Features/profile/shared/user_providers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:template/core/config/environment.dart';
 import 'package:template/core/infrastructure/helpers/logger_interceptor.dart';
